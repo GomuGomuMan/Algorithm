@@ -60,7 +60,17 @@ void AnyList::insertBack(int newData)
 
 void AnyList::insertPos(int pos, int val)
 {
+	if ((first == NULL || count == 0) && pos > 1)
+	{
+		std::cerr << "List is Empty! Proceed to insert the first element" << std::endl;
+		insertFront(val);
+	}
 
+	else if (pos > count)
+	{
+		std::cerr << "Position is larger than List's size (" + count << "). Please specify a position that is less than the List's size";
+	}
+		
 }
 
 

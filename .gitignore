@@ -35,5 +35,4 @@
 *.vcxproj
 *.vcxproj.filters
 .lastbuildstate
-.tlog
-.idb
+Debug

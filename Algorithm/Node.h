@@ -54,7 +54,11 @@ public:
 
 	void insertBack(int);
 
-	void insertPos(int pos, int val);
+	/*
+	returns 0 if successful
+	returns 1 if fails
+	*/
+	int insertPos(int pos, int val);
 
 	void deleteNode(int);
 

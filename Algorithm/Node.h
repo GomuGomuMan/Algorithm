@@ -55,10 +55,12 @@ public:
 	void insertBack(int);
 
 	/*
-	returns 0 if successful
-	returns 1 if fails
+		returns 0 if successful
+		returns 1 if fails
 	*/
 	int insertPos(int pos, int val);
+
+	void swap(int pos1, int pos2);
 
 	void deleteNode(int);
 

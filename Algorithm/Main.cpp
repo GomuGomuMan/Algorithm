@@ -16,10 +16,14 @@ int main()
 	list->insertBack(6);
 
 	// Test insertPos
-	bool successful = true;
+	/*bool successful = true;
 
-	if (list->insertPos(6, 20))
-		std::cout << "Not successful!" << std::endl;
+	if (list->insertPos(0, 20))
+		std::cout << "Not successful!" << std::endl;*/
+
+
+	// Test swap
+	list->swap(1, 1);
 	
 
 	// Print

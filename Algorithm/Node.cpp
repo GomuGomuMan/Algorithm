@@ -120,23 +120,41 @@ void AnyList::swap(int pos1, int pos2)
 
 	else if (pos1 < pos2)
 	{
+
 		// Find Node 1
+		bool isBefore1stNull = false;
 		Node * before1stNode = first;
 		Node *firstNode, *after1stNode;
 		int i = 0;
-		while (before1stNode->getLink() != NULL && i < pos1 - 1)
+
+		if (pos1 - 1 < 0) // Handle case where pos1 is front
 		{
-			before1stNode = before1stNode->getLink();
-			++i;
+			before1stNode = NULL;
+			firstNode = first;
+			after1stNode = firstNode->getLink();
+			isBefore1stNull = true;
 		}
-		firstNode = before1stNode->getLink();
-		after1stNode = firstNode->getLink();
+
+		else
+		{
+			while (before1stNode->getLink() != NULL && i < pos1 - 1)
+			{
+				before1stNode = before1stNode->getLink();
+				++i;
+			}
+			firstNode = before1stNode->getLink();
+			after1stNode = firstNode->getLink();
+
+			
+		}
 		
 		// Testing
-		/*std::cout << "pos1: " << pos1 << std::endl;
-		std::cout << "before1stNode: " << before1stNode->getData() << std::endl;
+		std::cout << "pos1: " << pos1 << std::endl;
+		if (before1stNode != NULL)
+			std::cout << "before1stNode: " << before1stNode->getData() << std::endl;
 		std::cout << "firstNode: " << firstNode->getData() << std::endl;
-		std::cout << "after1stNode: " << after1stNode->getData() << std::endl;*/
+		std::cout << "after1stNode: " << after1stNode->getData() << std::endl;
+		std::cout << std::endl;
 
 
 
@@ -155,19 +173,35 @@ void AnyList::swap(int pos1, int pos2)
 
 
 		// Testing
-		/*std::cout << "pos2: " << pos2 << std::endl;
+		std::cout << "pos2: " << pos2 << std::endl;
 		std::cout << "before2ndNode: " << before2ndNode->getData() << std::endl;
 		std::cout << "secondNode: " << secondNode->getData() << std::endl;
-		std::cout << "after2ndNode: " << after2ndNode->getData() << std::endl;*/
+		std::cout << "after2ndNode: " << after2ndNode->getData() << std::endl;
+		std::cout << std::endl;
 
-		
+
 
 		// Swap
-		before1stNode->setLink(secondNode);
+		if (isBefore1stNull)
+		{
+			secondNode->setLink(after1stNode);
+
+			before2ndNode->setLink(firstNode);
+			firstNode->setLink(after2ndNode);
+			first = secondNode;
+		}
+			
+		
+
+
+
+		// Swap
+		/*before1stNode->setLink(secondNode);
 		secondNode->setLink(after1stNode);
 
 		before2ndNode->setLink(firstNode);
-		firstNode->setLink(after2ndNode);
+		firstNode->setLink(after2ndNode);*/
+		
 	}
 
 }

@@ -23,11 +23,12 @@ int main()
 
 
 	// Test swap
-	list->swap(1, 1);
+	list->swap(0, 3);
 	
 
 	// Print
 	list->print();
+	std::cout << std::endl;
 
 
 	// Retrieve memory

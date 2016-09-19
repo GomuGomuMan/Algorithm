@@ -15,6 +15,10 @@ int main()
 	list->insertBack(5);
 	list->insertBack(6);
 
+	std::cout << "Original ";
+	list->print();
+	std::cout << std::endl;
+
 	// Test insertPos
 	/*bool successful = true;
 
@@ -23,7 +27,7 @@ int main()
 
 
 	// Test swap
-	list->swap(6, 5);
+	list->swap(0, 5);
 	
 
 	// Print

@@ -166,13 +166,13 @@ void AnyList::swap(int pos1, int pos2)
 		}
 
 		// Test Node 1
-		std::cout << "pos1: " << pos1 << std::endl;
+		/*std::cout << "pos1: " << pos1 << std::endl;
 		if (before1stNode != NULL)
 			std::cout << "before1stNode: " << before1stNode->getData() << std::endl;
 		std::cout << "firstNode: " << firstNode->getData() << std::endl;
 		if (after1stNode != NULL)
 			std::cout << "after1stNode: " << after1stNode->getData() << std::endl;
-		std::cout << std::endl;
+		std::cout << std::endl;*/
 
 
 		// Find Node 2
@@ -188,13 +188,13 @@ void AnyList::swap(int pos1, int pos2)
 		secondNode = before2ndNode->getLink();
 		after2ndNode = secondNode->getLink();
 
-		// Test Node 1
-		std::cout << "pos2: " << pos2 << std::endl;
+		// Test Node 2
+		/*std::cout << "pos2: " << pos2 << std::endl;
 		std::cout << "before2ndNode: " << before2ndNode->getData() << std::endl;
 		std::cout << "secondNode: " << secondNode->getData() << std::endl;
 		if (after2ndNode != NULL)
 			std::cout << "after2ndNode: " << after2ndNode->getData() << std::endl;
-		std::cout << std::endl;
+		std::cout << std::endl;*/
 
 		// Swap
 		if (before1stNode == NULL)

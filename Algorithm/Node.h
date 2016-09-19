@@ -51,19 +51,19 @@ public:
 	// Default Constructor
 	AnyList();
 
-	void insertFront(int);
+	void insertFront(const int);
 
-	void insertBack(int);
+	void insertBack(const int);
 
 	/*
 		returns 0 if successful
 		returns 1 if fails
 	*/
-	int insertPos(int pos, int val);
+	int insertPos(const int pos, const int val);
 
-	void swap(int pos1, int pos2);
+	void swap(const int pos1, const int pos2);
 
-	void deleteNode(int);
+	void deleteNode(const int);
 
 	void print() const;
 

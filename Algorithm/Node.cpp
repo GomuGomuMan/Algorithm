@@ -8,7 +8,7 @@ AnyList::AnyList()
 
 
 
-void AnyList::insertFront(int newData)
+void AnyList::insertFront(const int newData)
 {
 	Node * newNode = new Node;
 
@@ -32,7 +32,7 @@ void AnyList::insertFront(int newData)
 
 
 
-void AnyList::insertBack(int newData)
+void AnyList::insertBack(const int newData)
 {
 	if (first == NULL || count == 0)
 		insertFront(newData);
@@ -60,7 +60,7 @@ void AnyList::insertBack(int newData)
 
 
 
-int AnyList::insertPos(int pos, int newData)
+int AnyList::insertPos(const int pos, const int newData)
 {
 	if (first == NULL || count == 0)
 	{
@@ -120,7 +120,7 @@ int AnyList::insertPos(int pos, int newData)
 	pos1 cannot be at the end
 	pos2 cannot be at the beginning
 */
-void AnyList::swap(int pos1, int pos2)
+void AnyList::swap(const int pos1, const int pos2)
 {
 	if (first == NULL || count == 0)
 		std::cerr << "List is empty. Please specify position at 0 to insert. " << std::endl;
@@ -226,7 +226,7 @@ void AnyList::swap(int pos1, int pos2)
 
 
 
-void AnyList::deleteNode(int)
+void AnyList::deleteNode(const int)
 {
 
 }

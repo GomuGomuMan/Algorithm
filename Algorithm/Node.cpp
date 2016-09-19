@@ -68,9 +68,22 @@ int AnyList::insertPos(int pos, int newData)
 		return 1;
 	}
 
+	else if (pos > count)
+	{
+		std::cerr << "Position specified exceeds the amount of node available." << std::endl;
+		std::cerr << "Please try a position lower than " + std::to_string(count) << std::endl;
+		return 1;
+	}
+
 	else if (pos == 0)
 	{
 		insertFront(newData);
+		return 0;
+	}
+
+	else if (pos == count - 1)
+	{
+		insertBack(newData);
 		return 0;
 	}
 
@@ -112,29 +125,32 @@ void AnyList::swap(int pos1, int pos2)
 	else if (pos1 == pos2)
 		std::cerr << "Specified positions are the same. Please specify again. " << std::endl;
 
+	else if (pos1 > count - 1|| pos2 > count - 1)
+	{
+		std::cerr << "Position specified exceeds the amount of node available." << std::endl;
+		std::cerr << "Please try a position lower than " + std::to_string(count) << std::endl;
+	}
+
 	// Put pos1 & pos2 in order
 	else if (pos1 > pos2)
 	{
 		swap(pos2, pos1);
 	}
 
-	else if (pos1 < pos2)
+	else
 	{
-
 		// Find Node 1
-		bool isBefore1stNull = false;
 		Node * before1stNode = first;
-		Node *firstNode, *after1stNode;
+		Node *firstNode;
+		Node *after1stNode = NULL;
 		int i = 0;
-
-		if (pos1 - 1 < 0) // Handle case where pos1 is front
+		
+		if (pos1 == 0)
 		{
 			before1stNode = NULL;
 			firstNode = first;
 			after1stNode = firstNode->getLink();
-			isBefore1stNull = true;
 		}
-
 		else
 		{
 			while (before1stNode->getLink() != NULL && i < pos1 - 1)
@@ -144,63 +160,98 @@ void AnyList::swap(int pos1, int pos2)
 			}
 			firstNode = before1stNode->getLink();
 			after1stNode = firstNode->getLink();
-
-			
 		}
-		
-		// Testing
+
+		// Test Node 1
 		std::cout << "pos1: " << pos1 << std::endl;
 		if (before1stNode != NULL)
 			std::cout << "before1stNode: " << before1stNode->getData() << std::endl;
 		std::cout << "firstNode: " << firstNode->getData() << std::endl;
-		std::cout << "after1stNode: " << after1stNode->getData() << std::endl;
+		if (after1stNode != NULL)
+			std::cout << "after1stNode: " << after1stNode->getData() << std::endl;
 		std::cout << std::endl;
 
 
+		//// Find Node 1
+		//bool isBefore1stNull = false;
+		//Node * before1stNode = first;
+		//Node *firstNode, *after1stNode;
+		//int i = 0;
 
-		// Find Node 2
-		Node * before2ndNode = first;
-		Node * secondNode, *after2ndNode;
-		int j = 0;
-		while (before2ndNode->getLink() != NULL && j < pos2 - 1)
-		{
-			before2ndNode = before2ndNode->getLink();
-			++j;
-		}
-		secondNode = before2ndNode->getLink();
-		after2ndNode = secondNode->getLink();
+		//if (pos1 == 0) // Handle case where pos1 is front
+		//{
+		//	before1stNode = NULL;
+		//	firstNode = first;
+		//	after1stNode = firstNode->getLink();
+		//	isBefore1stNull = true;
+		//}
 
+		//else
+		//{
+		//	while (before1stNode->getLink() != NULL && i < pos1 - 1)
+		//	{
+		//		before1stNode = before1stNode->getLink();
+		//		++i;
+		//	}
+		//	firstNode = before1stNode->getLink();
+		//	after1stNode = firstNode->getLink();
 
-
-		// Testing
-		std::cout << "pos2: " << pos2 << std::endl;
-		std::cout << "before2ndNode: " << before2ndNode->getData() << std::endl;
-		std::cout << "secondNode: " << secondNode->getData() << std::endl;
-		std::cout << "after2ndNode: " << after2ndNode->getData() << std::endl;
-		std::cout << std::endl;
-
-
-
-		// Swap
-		if (isBefore1stNull)
-		{
-			secondNode->setLink(after1stNode);
-
-			before2ndNode->setLink(firstNode);
-			firstNode->setLink(after2ndNode);
-			first = secondNode;
-		}
-			
-		
-
+		//	
+		//}
+		//
+		//// Testing
+		//std::cout << "pos1: " << pos1 << std::endl;
+		//if (before1stNode != NULL)
+		//	std::cout << "before1stNode: " << before1stNode->getData() << std::endl;
+		//std::cout << "firstNode: " << firstNode->getData() << std::endl;
+		//std::cout << "after1stNode: " << after1stNode->getData() << std::endl;
+		//std::cout << std::endl;
 
 
-		// Swap
-		/*before1stNode->setLink(secondNode);
-		secondNode->setLink(after1stNode);
 
-		before2ndNode->setLink(firstNode);
-		firstNode->setLink(after2ndNode);*/
+		//// Find Node 2
+		//Node * before2ndNode = first;
+		//Node * secondNode, *after2ndNode;
+		//int j = 0;
+		//while (before2ndNode->getLink() != NULL && j < pos2 - 1)
+		//{
+		//	before2ndNode = before2ndNode->getLink();
+		//	++j;
+		//}
+		//secondNode = before2ndNode->getLink();
+		//after2ndNode = secondNode->getLink();
+
+
+
+		//// Testing
+		//std::cout << "pos2: " << pos2 << std::endl;
+		//std::cout << "before2ndNode: " << before2ndNode->getData() << std::endl;
+		//std::cout << "secondNode: " << secondNode->getData() << std::endl;
+		//std::cout << "after2ndNode: " << after2ndNode->getData() << std::endl;
+		//std::cout << std::endl;
+
+
+
+		//// Swap
+		//if (isBefore1stNull)
+		//{
+		//	secondNode->setLink(after1stNode);
+
+		//	before2ndNode->setLink(firstNode);
+		//	firstNode->setLink(after2ndNode);
+		//	first = secondNode;
+		//}
+		//	
+		//
+
+
+
+		//// Swap
+		///*before1stNode->setLink(secondNode);
+		//secondNode->setLink(after1stNode);
+
+		//before2ndNode->setLink(firstNode);
+		//firstNode->setLink(after2ndNode);*/
 		
 	}
 

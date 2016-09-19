@@ -18,12 +18,12 @@ int main()
 	// Test insertPos
 	/*bool successful = true;
 
-	if (list->insertPos(0, 20))
+	if (list->insertPos(7, 20))
 		std::cout << "Not successful!" << std::endl;*/
 
 
 	// Test swap
-	list->swap(0, 3);
+	list->swap(6, 5);
 	
 
 	// Print

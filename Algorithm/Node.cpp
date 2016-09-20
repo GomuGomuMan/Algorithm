@@ -125,6 +125,8 @@ void AnyList::swap(const int pos1, const int pos2)
 	if (first == NULL || count == 0)
 		std::cerr << "List is empty. Please specify position at 0 to insert. " << std::endl;
 
+	else if (pos1 < 0 || pos2 < 0)
+		std::cerr << "Position specified is negative. Please specify position in range [0, " + std::to_string(count - 1) + "]." << std::endl;
 
 	else if (pos1 == pos2)
 		std::cerr << "Specified positions are the same. Please specify again. " << std::endl;
@@ -176,9 +178,8 @@ void AnyList::swap(const int pos1, const int pos2)
 
 
 		// Find Node 2
-		Node * before2ndNode = first;
+		Node * before2ndNode = firstNode;
 		Node * secondNode, * after2ndNode;
-		currentPos = 0; // Reset currentPos
 
 		while (before2ndNode->getLink() != NULL && currentPos < pos2 - 1)
 		{
@@ -226,16 +227,65 @@ void AnyList::swap(const int pos1, const int pos2)
 
 
 
-void AnyList::deleteNode(const int)
+void AnyList::deleteNode(const int pos)
 {
+	if (first == NULL || count == 0)
+		std::cerr << "List is empty. Delete operation is NOT possible. " << std::endl;
 
+	else if (pos < 0)
+		std::cerr << "Position specified is negative. Please specify position in range [0, " + std::to_string(count - 1) + "]." << std::endl;
+
+	else if (pos > count - 1)
+	{
+		std::cerr << "Position specified exceeds the amount of node available." << std::endl;
+		std::cerr << "Please specify position in range [0, " + std::to_string(count - 1) + "]." << std::endl;
+	}
+
+	else
+	{
+		Node * node;
+		// Case: count = 1
+		if (count == 1)
+		{
+			node = first;
+			first = NULL;
+		}
+			
+
+		else if (pos == 0)
+		{
+			node = first;
+			first = node->getLink();
+		}
+
+		else
+		{
+			Node * beforeNode = first;
+			Node * afterNode;
+			int currentPos = 0;
+
+			while (beforeNode->getLink() != NULL && currentPos < pos - 1)
+			{
+				beforeNode = beforeNode->getLink();
+				++currentPos;
+			}
+
+			node = beforeNode->getLink();
+			afterNode = node->getLink();
+			beforeNode->setLink(afterNode);
+		}
+
+		delete node;
+
+		--count;
+	}
 }
 
 
 
 void AnyList::print() const
 {
-	if (first == NULL || count == 0)
+	if (first || count == 0)
 	{
 		std::cout << "List is empty! " << std::endl;
 		std::cout << "Size: " << count << std::endl;
@@ -251,7 +301,7 @@ void AnyList::print() const
 
 		temp = temp->getLink();
 
-		while (temp != NULL)
+		while (temp)
 		{
 			std::cout << ", " << temp->getData();
 			temp = temp->getLink();
@@ -270,5 +320,5 @@ void AnyList::destroyList()
 
 AnyList::~AnyList()
 {
-
+	std::cout << "Object is being deleted" << std::endl;
 }

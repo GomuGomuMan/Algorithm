@@ -7,14 +7,15 @@ int main()
 
 	// Test insertFront
 	list->insertFront(1);
-	list->insertFront(2);
-	list->insertFront(3);
+	//list->insertFront(2);
+	//list->insertFront(3);
 	
 	// Test insertBack
-	list->insertBack(4);
-	list->insertBack(5);
-	list->insertBack(6);
+	//list->insertBack(4);
+	//list->insertBack(5);
+	//list->insertBack(6);
 
+	// Print original list
 	std::cout << "Original ";
 	list->print();
 	std::cout << std::endl;
@@ -27,7 +28,10 @@ int main()
 
 
 	// Test swap
-	list->swap(0, 5);
+	/*list->swap(0, 5);*/
+
+	// Test delete
+	list->deleteNode(0);
 	
 
 	// Print

@@ -15,7 +15,7 @@ void AnyList::insertFront(const int newData)
 	newNode->setData(newData);
 	newNode->setLink(first);
 
-	if (first == NULL || count == 0)
+	if (!first|| count == 0)
 	{
 		first = newNode;
 		first->setLink(NULL);
@@ -34,7 +34,7 @@ void AnyList::insertFront(const int newData)
 
 void AnyList::insertBack(const int newData)
 {
-	if (first == NULL || count == 0)
+	if (!first || count == 0)
 		insertFront(newData);
 
 	else
@@ -47,7 +47,7 @@ void AnyList::insertBack(const int newData)
 		Node * temp = first;
 
 		// Traverse
-		while (temp->getLink() != NULL)
+		while (temp->getLink())
 			temp = temp->getLink();
 
 		temp->setLink(newNode);
@@ -62,7 +62,7 @@ void AnyList::insertBack(const int newData)
 
 int AnyList::insertPos(const int pos, const int newData)
 {
-	if (first == NULL || count == 0)
+	if (!first || count == 0)
 	{
 		std::cerr << "List is empty. Please specify position at 0 to insert. " << std::endl;
 		return 1;
@@ -98,7 +98,7 @@ int AnyList::insertPos(const int pos, const int newData)
 
 		// Traverse
 		// Get node before pos;
-		while (beforeNew->getLink() != NULL && i < pos - 1)
+		while (beforeNew->getLink() && i < pos - 1)
 		{
 			beforeNew = beforeNew->getLink();
 			++i;
@@ -122,7 +122,7 @@ int AnyList::insertPos(const int pos, const int newData)
 */
 void AnyList::swap(const int pos1, const int pos2)
 {
-	if (first == NULL || count == 0)
+	if (!first || count == 0)
 		std::cerr << "List is empty. Please specify position at 0 to insert. " << std::endl;
 
 	else if (pos1 < 0 || pos2 < 0)
@@ -158,7 +158,7 @@ void AnyList::swap(const int pos1, const int pos2)
 		}
 		else
 		{
-			while (before1stNode->getLink() != NULL && currentPos < pos1 - 1)
+			while (before1stNode->getLink() && currentPos < pos1 - 1)
 			{
 				before1stNode = before1stNode->getLink();
 				++currentPos;
@@ -181,7 +181,7 @@ void AnyList::swap(const int pos1, const int pos2)
 		Node * before2ndNode = firstNode;
 		Node * secondNode, * after2ndNode;
 
-		while (before2ndNode->getLink() != NULL && currentPos < pos2 - 1)
+		while (before2ndNode->getLink() && currentPos < pos2 - 1)
 		{
 			before2ndNode = before2ndNode->getLink();
 			++currentPos;
@@ -198,7 +198,7 @@ void AnyList::swap(const int pos1, const int pos2)
 		std::cout << std::endl;*/
 
 		// Swap
-		if (before1stNode == NULL)
+		if (!before1stNode)
 		{
 			first = secondNode;
 			secondNode->setLink(after1stNode);
@@ -229,7 +229,7 @@ void AnyList::swap(const int pos1, const int pos2)
 
 void AnyList::deleteNode(const int pos)
 {
-	if (first == NULL || count == 0)
+	if (!first || count == 0)
 		std::cerr << "List is empty. Delete operation is NOT possible. " << std::endl;
 
 	else if (pos < 0)
@@ -264,7 +264,7 @@ void AnyList::deleteNode(const int pos)
 			Node * afterNode;
 			int currentPos = 0;
 
-			while (beforeNode->getLink() != NULL && currentPos < pos - 1)
+			while (beforeNode->getLink() && currentPos < pos - 1)
 			{
 				beforeNode = beforeNode->getLink();
 				++currentPos;
@@ -285,7 +285,8 @@ void AnyList::deleteNode(const int pos)
 
 void AnyList::print() const
 {
-	if (first || count == 0)
+	// !first <=> first != NULL
+	if (!first || count == 0)
 	{
 		std::cout << "List is empty! " << std::endl;
 		std::cout << "Size: " << count << std::endl;
@@ -313,12 +314,16 @@ void AnyList::print() const
 	}
 }
 
-void AnyList::destroyList()
-{
 
-}
 
 AnyList::~AnyList()
 {
 	std::cout << "Object is being deleted" << std::endl;
+	Node * current = first;
+	while (current)
+	{
+		Node * traverse = current->getLink();
+		delete current;
+		current = traverse;
+	}
 }

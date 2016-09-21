@@ -13,7 +13,7 @@ public:
 	int getData() const { return data; }
 	void setData(int theData) { data = theData; }
 	void setLink(Node *theLink) { link = theLink; }
-	~Node() {}
+	~Node() { std::cout << "Node destructor is called here!" << std::endl; }
 
 
 
@@ -67,12 +67,8 @@ public:
 
 	void print() const;
 
-	void destroyList();
-
 	~AnyList();
 
-
-	
 private:
 	Node * first;
 	int count;

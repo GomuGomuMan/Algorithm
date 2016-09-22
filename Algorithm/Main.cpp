@@ -1,10 +1,8 @@
 #include <regex>
-#include <cstdlib>
-#include <vector>
 #include "Node.h"
+#include "buyAndSellStocksOnce.h"
 
 void singlyLinkedList();
-void buyAndSellStocksOnce();
 
 int main()
 {
@@ -21,7 +19,9 @@ int main()
 		
 		if (std::regex_match(selection, std::regex("(\\s*)buyAndSellStocksOnce(\\s*)")))
 		{
-			buyAndSellStocksOnce();
+			/*buyAndSellStocksOnce();*/
+			BuyAndSellStocksOnce problem;
+			problem.execute();
 		}
 		else if (std::regex_match(selection, std::regex("(\\s*)singly linked list(\\s*)")))
 		{
@@ -36,26 +36,7 @@ int main()
 	}
 }
 
-void buyAndSellStocksOnce()
-{
-	std::cout << "Problem: Input - Array of stock price for a specified day range" << std::endl;
-	std::cout << "         Output - Maximum profits by buying first then selling" << std::endl;
-	std::cout << "---------------------------------------------------------------" << std::endl;
-	std::cout << std::endl;
 
-	std::cout << "Please input a day range: ";
-	int day_range;
-	std::cin >> day_range;
-
-	std::vector<int> prices;
-	for (int i = 0; i < day_range; i++)
-	{
-		prices.push_back(rand() % day_range);
-		std::cout << "Iteration " + std::to_string(i) + ": " + std::to_string(prices[i]) << std::endl;
-	}
-
-	
-}
 
 void singlyLinkedList()
 {

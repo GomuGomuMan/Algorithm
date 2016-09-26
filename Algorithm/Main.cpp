@@ -26,6 +26,12 @@ int main()
 		{
 			singlyLinkedList();
 		}
+		else if (std::regex_match(selection, std::regex("(\\s*)fibonacci(\\s*)")))
+		{
+			Fibonacci problem;
+			problem.execute();
+
+		}
 		else if (std::regex_match(selection, std::regex("(\\s*)quit(\\s*)")))
 		{
 			return 0;

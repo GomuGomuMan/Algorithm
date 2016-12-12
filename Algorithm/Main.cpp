@@ -10,6 +10,14 @@ int main()
 	std::cout << "-----------------------------------------------------------" << std::endl;
 	std::cout << std::endl;
 
+	BST<int> bst = BST<int>();
+	bst.insert(5);
+	bst.insert(1);
+	bst.insert(6);
+	bst.print_inorder();
+	bst.print_preorder();
+	bst.print_postorder();
+
 	while (1)
 	{
 		std::cout << "Which algorithm/data structure/problem do you want to choose? " << std::endl;

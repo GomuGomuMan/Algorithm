@@ -29,7 +29,7 @@ class BST
 
 		// Destructor
 		/*~BST() { delete root; }*/
-		~BST();
+		~BST() { delete root; }
 
 	private:
 		// Insert
@@ -44,6 +44,9 @@ class BST
 
 		// Postorder
 		void print_postorder_p(BST_Node<T> * node) const;
+
+		// Delete tree
+		void delete_bst(BST_Node<T> * node);
 
 		BST_Node<T> * root;
 };

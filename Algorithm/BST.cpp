@@ -103,10 +103,11 @@ void BST<T>::print_postorder_p(BST_Node<T> * node) const
 	print_postorder_p(node->right);
 }
 
-
-// Destructor
+// Delete tree
 template <typename T>
-BST<T>::~BST()
+void BST<T>::delete_bst(BST_Node<T> * node)
 {
-	delete root;
+	if (node == nullptr)
+		delete root;
+	else if
 }

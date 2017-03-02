@@ -35,4 +35,5 @@
 *.vcxproj
 *.vcxproj.filters
 .lastbuildstate
-Debug
+Debug/
+*.vs/

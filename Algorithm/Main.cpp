@@ -5,48 +5,52 @@ void singlyLinkedList();
 
 int main()
 {
-	std::cout << "-----------------------------------------------------------" << std::endl;
-	std::cout << "-------------------Algorithm Collection--------------------" << std::endl;
-	std::cout << "-----------------------------------------------------------" << std::endl;
-	std::cout << std::endl;
+	//std::cout << "-----------------------------------------------------------" << std::endl;
+	//std::cout << "-------------------Algorithm Collection--------------------" << std::endl;
+	//std::cout << "-----------------------------------------------------------" << std::endl;
+	//std::cout << std::endl;
 
-	BST<int> bst = BST<int>();
-	bst.insert(5);
-	bst.insert(1);
-	bst.insert(6);
-	bst.print_inorder();
-	bst.print_preorder();
-	bst.print_postorder();
+	//// Test
+	//BST<int> bst = BST<int>();
+	//bst.test_delete();
+	////bst.print_preorder();
+	////bst.print_postorder();
 
-	while (1)
-	{
-		std::cout << "Which algorithm/data structure/problem do you want to choose? " << std::endl;
-		std::string selection;
-		std::getline(std::cin, selection);
-		
-		if (std::regex_match(selection, std::regex("(\\s*)buyAndSellStocksOnce(\\s*)")))
-		{
-			/*buyAndSellStocksOnce();*/
-			BuyAndSellStocksOnce problem;
-			problem.execute();
-		}
-		else if (std::regex_match(selection, std::regex("(\\s*)singly linked list(\\s*)")))
-		{
-			singlyLinkedList();
-		}
-		else if (std::regex_match(selection, std::regex("(\\s*)fibonacci(\\s*)")))
-		{
-			Fibonacci problem;
-			problem.execute();
+	//while (1)
+	//{
+	//	std::cout << "Which algorithm/data structure/problem do you want to choose? " << std::endl;
+	//	std::string selection;
+	//	std::getline(std::cin, selection);
+	//	
+	//	if (std::regex_match(selection, std::regex("(\\s*)buyAndSellStocksOnce(\\s*)")))
+	//	{
+	//		/*buyAndSellStocksOnce();*/
+	//		BuyAndSellStocksOnce problem;
+	//		problem.execute();
+	//	}
+	//	else if (std::regex_match(selection, std::regex("(\\s*)singly linked list(\\s*)")))
+	//	{
+	//		singlyLinkedList();
+	//	}
+	//	else if (std::regex_match(selection, std::regex("(\\s*)fibonacci(\\s*)")))
+	//	{
+	//		Fibonacci problem;
+	//		problem.execute();
 
-		}
-		else if (std::regex_match(selection, std::regex("(\\s*)quit(\\s*)")))
-		{
-			return 0;
-		}
+	//	}
+	//	else if (std::regex_match(selection, std::regex("(\\s*)quit(\\s*)")))
+	//	{
+	//		return 0;
+	//	}
 
-		std::cout << std::endl;
-	}
+	//	std::cout << std::endl;
+	//}
+
+	// Test
+	Bit_Manipulation bit_man;
+	bit_man.print_binary(2);
+	system("Pause");
+	return 0;
 }
 
 

@@ -7,7 +7,7 @@
 
 // Problems
 #include "buyAndSellStocksOnce.h"
-
+#include "Bit_Manipulation.h"
 
 
 // Algorithm

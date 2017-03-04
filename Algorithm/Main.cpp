@@ -48,7 +48,8 @@ int main()
 
 	// Test
 	Bit_Manipulation bit_man;
-	bit_man.print_binary(2);
+	std::cout << bit_man.print_binary(10) << std::endl;
+	//std::cout << bit_man.get_num_highbit(5) << std::endl;
 	system("Pause");
 	return 0;
 }

@@ -1,7 +1,8 @@
 #pragma once
 
 #include <iostream>
-#include <bitset>
+#include <sstream>
+#include <algorithm>
 
 class Bit_Manipulation
 {
@@ -10,7 +11,10 @@ class Bit_Manipulation
 		Bit_Manipulation();
 
 		/* Print binary representation of a number */
-		void print_binary(int num) const;
+		std::string print_binary(int num) const;
+
+		/* Print number of 1 in a binary representation */
+		int get_num_highbit(int num) const;
 
 	private:
 		int bit_size;

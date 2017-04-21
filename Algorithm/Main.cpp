@@ -1,6 +1,8 @@
 #include <regex>
 #include "Reference_Main.h"
 
+#include "Graph.h"
+
 void singlyLinkedList();
 
 int main()
@@ -47,10 +49,22 @@ int main()
 	//}
 
 	// Test
-	Bit_Manipulation bit_man;
-	std::cout << bit_man.print_binary(10) << std::endl;
+	/*Bit_Manipulation bit_man;
+	std::cout << bit_man.print_binary(10) << std::endl;*/
 	//std::cout << bit_man.get_num_highbit(5) << std::endl;
-	system("Pause");
+
+	// Test
+	Graph graph(4);
+	/*graph.addEdge(0, 1);
+	graph.addEdge(0, 2);
+	graph.addEdge(2, 1);
+	graph.addEdge(2, 3);*/
+
+	//graph.printEdge();
+	/*graph.printBFS(0);*/
+
+	std::cin.get();
+	//system("Pause");
 	return 0;
 }
 
